@@ -6,8 +6,8 @@ source .buildkite/scripts/common/util.sh
 
 USER_FROM_VAULT="$(retry 5 5 vault read -field=username secret/kibana-issues/dev/apm_parser_performance)"
 PASS_FROM_VAULT="$(retry 5 5 vault read -field=password secret/kibana-issues/dev/apm_parser_performance)"
-echo USER_FROM_VAULT
-echo PASS_FROM_VAULT
+echo "${USER_FROM_VAULT}"
+echo "${PASS_FROM_VAULT}"
 ES_SERVER_URL="https://kibana-ops-e2e-perf.es.us-central1.gcp.cloud.es.io:9243"
 BUILD_ID=${BUILDKITE_BUILD_ID}
 GCS_BUCKET="gs://kibana-performance/scalability-tests"
